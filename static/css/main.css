@@ -49,6 +49,7 @@ body {
 
 .image-gallery {
   padding-bottom: 1rem;
+  overflow-y: scroll;
 }
 
 .image-gallery .gallery-card {
@@ -84,3 +85,6 @@ body {
   opacity: 0.7;
 }
 
+.carousel {
+  margin: 20px;
+}
