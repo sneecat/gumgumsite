@@ -21,6 +21,52 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+  <!-- Mobile top navbar-->
+    <div class="row">
+  <div class="container d-lg-none">
+    <nav class="navbar navbar-inverse mobile-navbar">
+        <div class="col-3">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              {% for project in projects %}
+              <a class="dropdown-item" href="{{ project.link }}">{{ project.name }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-9">
+        <a class="navbar-brand" href="#">
+          <img class="mobile-logo" src="{{ url_for('static', filename='/images/Gumgum_header.png')}}">
+        </a>
+        </div>
+    </nav>
+    </div>
+  </div>
+  <!-- END Mobile top navbar-->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Side Navbar -->
+      <div class="col-2 side-navbar d-none d-lg-block">
+        <div class="row">
+          <div class="col project-list">
+            <h3>Selected Works</h3>
+            {% for project in projects %}
+            <a class="project-link" href="{{ project.link }}">
+            <p>{{ project.name }}</p>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="row mt-auto">
+          <h4> Studio GumGum </h4>
+          <img class="navbar-logo img-fluid" src="{{ url_for('static', filename='/images/GUMGUM_LOGO.gif')}}">
+        </div>
+      </div>
 {% block content %} {% endblock %}
+    </div>
+    </div>
 </body>
 

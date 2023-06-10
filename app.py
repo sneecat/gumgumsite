@@ -19,7 +19,7 @@ project_list = [yaejiFG, boogie]
 
 @app.route("/")
 def index():
-    return render_template("index.html", projects=project_list)
+    return render_template("homepage.html", projects=project_list)
 
 
 @app.route("/sendmail/", methods=["POST"])
