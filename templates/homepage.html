@@ -9,7 +9,16 @@
         <div class="row image-gallery">
         {% for project in projects %}
         <div class="col-sm-6 col-md-6 col-lg-6 gallery-card">
-          <img class="img-fluid" src="{{ project.coverimage }}">
+          <a class="gallery-link" href="{{ project.link }}">
+            <div class="gallery-overlay-wrap">
+          <img class="img-fluid gallery-card-image" src="{{ project.coverimage }}">
+          </a>
+          <div class="gallery-overlay">
+            <text>
+            {{ project.name }}
+            </text>
+          </div>
+            </div>
         </div>
         {% endfor %}
         </div>
