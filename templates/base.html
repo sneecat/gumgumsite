@@ -14,10 +14,12 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
     </script>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
@@ -52,9 +54,18 @@
       <div class="row">
         <!-- Side Navbar -->
         <div class="col-2 side-navbar d-none d-lg-block">
+          <div class="row mt-auto">
+            <a href="/#">
+              <img class="navbar-logo" src="{{ url_for('static', filename='/images/GUMGUM_LOGO.gif')}}">
+            <div class="site-title">
+            
+            <h3>Studio GumGum</h3>
+            </div>
+            </a>
+          </div>
           <div class="row">
             <div class="col project-list">
-              <h3>Selected Works</h3>
+              <h4>Selected Works</h4>
               {% for project in projects %}
               <a class="project-link" href="{{ project.link }}">
                 <p>{{ project.title }}</p>
@@ -63,12 +74,6 @@
             </div>
           </div>
 
-          <div class="row mt-auto">
-            <h4> Studio GumGum </h4>
-            <a href="/#">
-              <img class="navbar-logo img-fluid" src="{{ url_for('static', filename='/images/GUMGUM_LOGO.gif')}}">
-            </a>
-          </div>
         </div>
         <!-- END Side Navbar -->
         {% block content %} {% endblock %}

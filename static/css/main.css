@@ -1,17 +1,38 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #666;
+  font-family: "Jetbrains Mono", sans-serif;
+  color: #bfbfbf;
   background-color: #000000
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.site-title {
+  color: #bfbfbf;
+  text-align: center;
+  transition: background-color 0.25s;
+  border-radius: 4px;
+}
+
+.site-title h3:hover {
+  transition: background-color 0.25s;
+  background-color: #666666;
+  border-radius: 4px;
+}
 
 .mobile-navbar {
 
 }
 
 .navbar-logo {
+  max-width: 200px;
   
 }
 
@@ -22,6 +43,7 @@ body {
 }
 
 .project-list {
+  padding-top: 5rem;
   padding-bottom: 20rem;
 }
 
@@ -41,15 +63,16 @@ body {
 }
 
 .side-navbar {
-  padding-top: 4rem;
-  padding-left: 2rem;
+  padding-top: 2rem;
   height: 100%;
+  max-width: 250px;
 }
 
 
 .image-gallery {
   padding-bottom: 1rem;
   overflow-y: scroll;
+  max-width: 1700px;
 }
 
 .image-gallery .gallery-card {
@@ -87,4 +110,17 @@ body {
 
 .carousel {
   margin: 20px;
+  max-width: 1600px;
+}
+
+@media (min-width: 992px) {
+  .project-header {
+    padding-left: 2rem;
+    padding-top: 2rem;
+  }
+}
+@media (max-width: 992px) {
+  .project-header h1 {
+    text-align:center;
+  }
 }
