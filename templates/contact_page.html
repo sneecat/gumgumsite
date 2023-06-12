@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+{% block style %}
+<style>
+svg {
+  height: 2em;
+  vertical-align: center;
+}
+
+.contact-info {
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+<!-- TODO: Add contact icons -->
+
+</style>
+{% endblock %}
+{% block content %}
+<div class="col">
+  <div class="row justify-content-center">
+    <div class="col-md-4 my-5 mx-3">
+      <p style="line-height: 1.3;font-size: 1.5rem;">
+      GumGum is a creative studio working with motion, light and form. Across our work,
+      we strive to manifest elasticity in
+      rigid forms.
+      </p>
+    </div>
+
+    <div class="col-md-4 my-5 mx-3">
+      <p style="line-height: 1.2;font-size: 1.2rem;">
+      We work with clients and artists to help realize projects across motion graphics, video production and post-production, realtime on-set fx, bespoke lighting design and programming for realtime installations.
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col mx-auto">
+      <div class="container contact-info">
+      <a href="https://www.instagram.com/gumgum.studio/?hl=en">@gumgum.studio</a></br>
+      <a href="mailto:info@gumgum.studio">info@gumgum.studio</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

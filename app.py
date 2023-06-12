@@ -34,7 +34,6 @@ class Project:
         return all_images
 
 
-
 yaejiFG = Project("Yaeji - For Granted", "for_granted")
 boogie = Project("Big Room Boogie", "big_room_boogie")
 yaejiOneMore = Project("Yaeji One More Tour", "one_more")
@@ -52,9 +51,11 @@ def project_view(project_slug):
         if str(project_slug) in project.link:
             return render_template("project_page.html", target_project=project, projects=project_list)
 
+
 @app.route("/contact")
 def contact_view():
-    return render_template("contact_page.html")
+    return render_template("contact_page.html", projects=project_list)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
