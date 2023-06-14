@@ -19,76 +19,75 @@
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
     </script>
+
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
 
     <title>{% block title %}{% endblock %}</title>
 
-  {% block style %}
-  {% endblock %}
-
+    <style>
+    {% block style %}
+    {% endblock %}
+    </style>
   </head>
   <body>
-    <!-- Mobile top navbar-->
-    <div class="row">
-      <div class="container d-lg-none">
-        <nav class="navbar navbar-inverse mobile-navbar">
-          <!--This burger menu is kinda dumb imo-->
-            <div class="col-3">
-            <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            {% for project in projects %}
-            <a class="dropdown-item" href="{{ project.link }}">{{ project.name }}</a>
-            {% endfor %}
-            </div>
-            </div>
-            </div>
-          <div class="col">
-            <a class="navbar-brand" href="/">
-              <img class="mobile-logo" src="{{ url_for('static', filename='/images/Gumgum_header.png')}}">
-            </a>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <!-- END Mobile top navbar-->
+    <!-- Side Navbar -->
+    <div class="row-offcanvas row-offcanvas-left">
+      <div id="sidebar" class="sidebar-offcanvas">
+        <div class="col-md-12">
 
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Side Navbar -->
-        <div class="col-2 side-navbar d-none d-lg-block">
-          <div class="row mt-auto">
-            <a href="/#">
-              <img class="navbar-logo" src="{{ url_for('static', filename='/images/GUMGUM_LOGO.gif')}}">
-            <div class="site-title">
-            
-            <h3>Studio GumGum</h3>
-            </div>
+          <div class="navbar-logo">
+            <a href="/">
+              <img src="{{ url_for('static', filename='/images/GUMGUM_LOGO.gif')}}" height="200" width="200">
             </a>
           </div>
-          <div class="row">
-            <div class="col project-list">
-              <h4>Selected Works</h4>
-              {% for project in projects %}
+
+          <h3>Studio GumGum</h3>
+
+          <h4>Selected Works</h4>
+
+          <ul class="nav nav-pills nav-stacked">
+            {% for project in projects %}
+            <li>
               <a class="project-link" href="{{ project.link }}">
                 <p>{{ project.title }}</p>
               </a>
-              {% endfor %}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <span class="align-middle">
-                <a href="/contact">Contact</a>
-              </span>
-            </div>
-          </div>
-        </div>
-        <!-- END Side Navbar -->
-        {% block content %} {% endblock %}
+            </li>
+            {% endfor %}
+            <li>
+              <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Projects
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#">TEST</a>
+                  <a class="dropdown-item" href="#">TEST</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              Contact
+            </li>
 
+          </ul>
+        </div>
+      </div>
+      <!-- END Side Navbar -->
+      <div id="main">
+        <div class="col-md-12">
+          <p class="d-md-none">
+          <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          {% block content %} {% endblock %}
+        </div>
       </div>
     </div>
   </body>
-
+  <script>
+    $(document).ready(function() {
+      $('[data-toggle=offcanvas]').click(function() {
+        $('.row-offcanvas').toggleClass('active');
+      });
+    });
+  </script>
+  
+</html>

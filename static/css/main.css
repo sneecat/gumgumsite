@@ -4,7 +4,8 @@ body {
   padding: 0;
   font-family: "Jetbrains Mono", sans-serif;
   color: #bfbfbf;
-  background-color: #000000
+  background-color: #000000;
+  padding-top: 20px;
 }
 
 h1 {
@@ -40,6 +41,21 @@ a:hover {
 }
 
 
+#sidebar {
+  width: inherit;
+  min-width: 220px;
+  max-width: 220px;
+  float: left;
+  height:100%;
+  position:relative;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+#main {
+  height: 100%;
+  overflow: auto;
+}
 
 .site-title {
   color: #bfbfbf;
@@ -54,14 +70,15 @@ a:hover {
   border-radius: 4px;
 }
 
-.mobile-navbar {
-
+.navbar-logo {
+  display: inline-block;
+  max-height: 200px;
+  max-width: 200px;
 }
 
-.navbar-logo {
-  max-width: 200px;
-  display: inline;
-  
+.navbar-logo img {
+  height: auto;
+  width: 100% !important
 }
 
 .mobile-logo {
@@ -142,6 +159,10 @@ a:hover {
   max-width: 1600px;
 }
 
+/*
+ * Media Queries
+ * --------------------------------------------------
+ */
 @media (min-width: 992px) {
   .project-header {
     padding-left: 2rem;
@@ -151,5 +172,33 @@ a:hover {
 @media (max-width: 992px) {
   .project-header h1 {
     text-align:center;
+  }
+}
+
+/*
+ * off Canvas sidebar
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    width:calc(100% + 220px);
+  }
+    
+  .row-offcanvas-left
+  {
+    left: -220px;
+  }
+
+  .row-offcanvas-left.active {
+    left: 0;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
   }
 }

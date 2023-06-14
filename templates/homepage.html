@@ -3,35 +3,28 @@
 {% block title %}GUMGUM{% endblock %}
 {% block content %}
 
+<div class="container-fluid">
   <!-- Main Body Content-->
 
-      <!-- Image Gallery -->
-      <div class="col mx-3 mt-5">
-        <div class="row image-gallery mx-auto">
-        {% for project in projects %}
-        <div class="col-sm-6 col-md-6 col-lg-6 gallery-card">
-          <a class="gallery-link" href="{{ project.link }}">
-            <div class="gallery-overlay-wrap">
-          <img class="img-fluid gallery-card-image" src="{{ project.cover_image }}">
-          </a>
-          <div class="gallery-overlay">
-            <text>
-            {{ project.title }}
-            </text>
+  <!-- Image Gallery -->
+  <div class="col">
+    <div class="row image-gallery mx-auto">
+      {% for project in projects %}
+      <div class="col-sm-6 col-md-6 col-lg-6 gallery-card">
+        <a class="gallery-link" href="{{ project.link }}">
+          <div class="gallery-overlay-wrap">
+            <img class="img-fluid gallery-card-image" src="{{ project.cover_image }}">
+        </a>
+        <div class="gallery-overlay">
+          <text>
+          {{ project.title }}
+          </text>
+        </div>
           </div>
-            </div>
-        </div>
-        {% endfor %}
-        </div>
       </div>
+      {% endfor %}
     </div>
+  </div>
+</div>
 {% endblock %} 
-  
-  <!-- Optional JavaScript; choose one of the two! -->
-  
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-  
-</html>
+
